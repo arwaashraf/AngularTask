@@ -1,1 +1,97 @@
-<p>register works!</p>
+<div class="container">
+  <form class="login-email" [formGroup]="registerForm">
+    <p
+      class="login-text"
+      style="font-size: 2rem; font-weight: 800; font-style: italic"
+    >
+      Sign Up
+    </p>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Username"
+        class="form-control"
+        formControlName="userName"
+      />
+      <div *ngIf="getErrors('userName') && getField('userName')?.touched">
+        <p *ngIf="getErrors('userName')?.['required']">
+          please provide a user name
+        </p>
+        <p *ngIf="getErrors('userName')?.['minlength']">
+          user name must be 3 characters and more
+        </p>
+        <p *ngIf="getErrors('userName')?.['maxlength']">
+          user name must less than 50 characters
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        class="form-control"
+        formControlName="email"
+      />
+      <div *ngIf="getErrors('email') && getField('email')?.touched">
+        <p *ngIf="getErrors('email')?.['required']">please provide a email</p>
+        <p *ngIf="getErrors('email')?.['email']">
+          please provide a valid email
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        class="form-control"
+        formControlName="password"
+      />
+      <div *ngIf="getErrors('password') && getField('password')?.touched">
+        <p *ngIf="getErrors('password')?.['required']">
+          please provide a password
+        </p>
+        <p *ngIf="getErrors('password')?.['maxlength']">
+          please provide a valid password
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Phone"
+        name="phone"
+        class="form-control"
+        formControlName="phone"
+      />
+      <div *ngIf="getErrors('phone') && getField('phone')?.touched">
+        <p *ngIf="getErrors('phone')?.['required']">please provide a phone</p>
+        <p *ngIf="getErrors('phone')?.['maxlength']">
+          please provide a valid phone
+        </p>
+      </div>
+    </div>
+    <div formGroupName="address">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="State"
+          class="form-control"
+          formControlName="state"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="City"
+          class="form-control"
+          formControlName="city"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <button name="submit" class="btn">Register</button>
+    </div>
+  </form>
+</div>
