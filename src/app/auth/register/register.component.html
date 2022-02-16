@@ -11,16 +11,16 @@
         type="text"
         placeholder="Username"
         class="form-control"
-        formControlName="userName"
+        formControlName="name"
       />
-      <div *ngIf="getErrors('userName') && getField('userName')?.touched">
-        <p *ngIf="getErrors('userName')?.['required']">
+      <div *ngIf="getErrors('name') && getField('name')?.touched">
+        <p *ngIf="getErrors('name')?.['required']">
           please provide a user name
         </p>
-        <p *ngIf="getErrors('userName')?.['minlength']">
+        <p *ngIf="getErrors('name')?.['minlength']">
           user name must be 3 characters and more
         </p>
-        <p *ngIf="getErrors('userName')?.['maxlength']">
+        <p *ngIf="getErrors('name')?.['maxlength']">
           user name must less than 50 characters
         </p>
       </div>
@@ -52,11 +52,40 @@
         <p *ngIf="getErrors('password')?.['required']">
           please provide a password
         </p>
-        <p *ngIf="getErrors('password')?.['maxlength']">
+        <p *ngIf="getErrors('password')?.['minlength']">
           please provide a valid password
         </p>
       </div>
     </div>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="State"
+          class="form-control"
+          formControlName="state"
+        />
+        <div *ngIf="getErrors('state') && getField('state')?.touched">
+          <p *ngIf="getErrors('state')?.['required']">please provide a state</p>
+        </div>
+        
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="City"
+          class="form-control"
+          formControlName="city"
+        />
+        <div *ngIf="getErrors('city') && getField('city')?.touched">
+          <p *ngIf="getErrors('city')?.['required']">please provide a city</p>
+        </div>
+        
+      </div>
+    </div>
+
     <div class="form-group">
       <input
         type="text"
@@ -67,29 +96,15 @@
       />
       <div *ngIf="getErrors('phone') && getField('phone')?.touched">
         <p *ngIf="getErrors('phone')?.['required']">please provide a phone</p>
+        <p *ngIf="getErrors('phone')?.['minlength']">
+          please provide a valid phone
+        </p>
         <p *ngIf="getErrors('phone')?.['maxlength']">
           please provide a valid phone
         </p>
       </div>
     </div>
-    <div formGroupName="address">
-      <div class="form-group">
-        <input
-          type="text"
-          placeholder="State"
-          class="form-control"
-          formControlName="state"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          placeholder="City"
-          class="form-control"
-          formControlName="city"
-        />
-      </div>
-    </div>
+
     <div class="form-group">
       <button name="submit" class="btn">Register</button>
     </div>

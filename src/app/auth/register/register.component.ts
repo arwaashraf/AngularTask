@@ -9,19 +9,19 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
   registerForm = this.fb.group({
-    userName: [
+    name: [
       '',
       [Validators.required,
       Validators.minLength(3),
       Validators.maxLength(50)]
     ],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.maxLength(6)]],
-    phone: ['', [Validators.required, Validators.maxLength(11)]],
+    password: ['', [Validators.required, Validators.minLength(4)]],
     address: this.fb.group({
-      city: [''],
-      state: [''],
+      city: ['' ,Validators.required],
+      state: ['',Validators.required],
     }),
+    phone: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
   });
   ngOnInit(): void {}
   getErrors(field: string) {
