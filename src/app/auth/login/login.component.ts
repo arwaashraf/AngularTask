@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserData, UserLogin } from './interface/login.model';
 import { LoginService } from './loginService/login.service';
@@ -11,6 +11,7 @@ import { LoginService } from './loginService/login.service';
 export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder , private loginService : LoginService) { }
+ 
   userToken :string = ''
   userDetails:UserData ={name:'',userId:'',role:''}
 
@@ -30,13 +31,21 @@ export class LoginComponent implements OnInit {
   {
     this.loginService.login(this.loginForm.value).subscribe({
       next:(userData:UserLogin)=>{
+        // console.log(userData)
+        console.log(Object.values(userData)[0])
         this.userDetails =Object.values(userData)[0]
         this.userToken = Object.values(userData)[1]
-        console.log(this.userDetails.userId  )
-        console.log(this.userToken)
+        
+        // console.log(this.userDetails.name  )
+        // console.log(this.userToken)
+        localStorage.setItem(`${this.userDetails.userId}`, this.userToken)
+
         },
       error:(err:any)=> {console.log(err.error.msg)}
       
     })
+  }
+  onLogout(){
+    localStorage.removeItem(`${this.userDetails.userId}`)
   }
 }
