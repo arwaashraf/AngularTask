@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LoginComponent } from './auth/login/login.component';
 @NgModule({
   declarations: [AppComponent, NavBarComponent],
   imports: [
@@ -14,7 +15,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     AuthModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginComponent
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -13,13 +13,15 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder , private loginService : LoginService) { }
  
   userToken :string = ''
-  userDetails:UserData ={name:'',userId:'',role:''}
+  userDetails:any
+  // userDetails:UserData = {name:'d',userId:'s',role:''}
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   })
   ngOnInit(): void {
+   
   }
   getErrors(field: string) {
     return this.loginForm.get(field)?.errors;
@@ -29,23 +31,18 @@ export class LoginComponent implements OnInit {
   }
   onLogin()
   {
-    this.loginService.login(this.loginForm.value).subscribe({
+     this.loginService.login(this.loginForm.value).subscribe({
       next:(userData:UserLogin)=>{
         // console.log(userData)
         console.log(Object.values(userData)[0])
-        this.userDetails =Object.values(userData)[0]
+        this.userDetails = Object.values(userData)[0]
         this.userToken = Object.values(userData)[1]
-        
-        // console.log(this.userDetails.name  )
+      // console.log(this.userDetails.name  )
         // console.log(this.userToken)
-        localStorage.setItem(`${this.userDetails.userId}`, this.userToken)
-
-        },
+        localStorage.setItem('user',this.userToken)
+      },
       error:(err:any)=> {console.log(err.error.msg)}
-      
     })
   }
-  onLogout(){
-    localStorage.removeItem(`${this.userDetails.userId}`)
-  }
+  
 }
