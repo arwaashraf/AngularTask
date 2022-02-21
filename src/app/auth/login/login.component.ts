@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthServiceService } from '../auth-service.service';
 import { UserData, UserLogin } from './interface/login.model';
-import { LoginService } from './loginService/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { LoginService } from './loginService/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder , private loginService : LoginService) { }
+  constructor(private fb:FormBuilder , private authService_login : AuthServiceService) { }
  
   userToken :string = ''
   userDetails:any
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
   onLogin()
   {
-     this.loginService.login(this.loginForm.value).subscribe({
+     this.authService_login.login(this.loginForm.value).subscribe({
       next:(userData:UserLogin)=>{
         // console.log(userData)
         console.log(Object.values(userData)[0])
