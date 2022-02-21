@@ -1,79 +1,77 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  body {
-    width: 100%;
-    min-height: 100vh;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 450px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 450px;
+}
+
+.container {
+  width: 400px;
+  min-height: 400px;
+  background: #fff;
+  padding: 40px 30px;
+  margin-left: 470px;
+}
+
+.container .login-text {
+  color: #111;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  display: block;
+  text-transform: capitalize;
+  margin-top: 50px;
+}
+.container .login-email .form-group {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.container .login-email .form-group input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #e7e7e7;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+  transition: 0.3s;
+}
+
+.container .login-email .form-group .btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  text-align: center;
+  border: none;
+  background: blue;
+  outline: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (max-width: 430px) {
   .container {
-    width: 400px;
-    min-height: 400px;
-    background: #fff;
-    padding: 40px 30px;
-    margin-left: 470px;
+    width: 300px;
   }
-  
-  .container .login-text {
-    color: #111;
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 20px;
-    display: block;
-    text-transform: capitalize;
-    margin-top: 150px;
-  }
-  .container .login-email .form-group {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 25px;
-    
-  }
-  
-  .container .login-email .form-group input {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #e7e7e7;
-    padding: 15px 20px;
-    font-size: 1rem;
-    border-radius: 10px;
-    background: transparent;
-    outline: none;
-    transition: 0.3s;
-  }
-  
-  .container .login-email .form-group .btn {
-    display: block;
-    width: 100%;
-    padding: 15px 20px;
-    text-align: center;
-    border: none;
-    background: blue;
-    outline: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  @media (max-width: 430px) {
-    .container {
-      width: 300px;
-    }
-  }
-  p {
-    color: red;
-  }
-  
+}
+p {
+  color: red;
+}
